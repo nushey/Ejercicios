@@ -3,31 +3,6 @@
 #include <set>
 using namespace std;
 
-bool estaL(string a, int l, char b){
-    bool esta = false;
-    for(int i = 0; i < l && !esta; i++){
-        if(a[i] == b) esta = true;
-    }
-    return esta;
-}
-
-int cantLetra(string a, int l, char b){
-    int cant = 0;
-    for(int i = 0; i < l; i++){
-        if(a[i] == b) cant++;
-    }
-    return cant;
-}
-
-int fact(int n){
-    if(n==0) return 1;
-    int res  = n;
-    for(int i = 1; i<n;i++){
-        res *= i;
-    }
-    return res;
-}
-
 void swap(string &s, int i, int k){
     char aux = s[i];
     s[i] = s[k];
