@@ -1,6 +1,0 @@
-Para hallar los ultimos 0 de n factorial:
-La cantidad de 0 se puede ver como la cantidad de potencias de 5 que caben dentro del numero.
-Ejemplo:
-Dentro de 25 caben 5 potencias de 5*1 
-Dentro de 25 cabe 1 potencia de 5*2.
-Por lo tanto, 5 + 1 = 6.
