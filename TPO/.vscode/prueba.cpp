@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <math.h>
+#include <algorithm>
 using namespace std;
 
 int main() {
-    string a = "asd";
-    string b = {a[2]};   
-    string c = a+b;
-    for(int i = 0; i < c.size(); i++){
-        cout << c[i] << " - ";
-    }
+    vector<int> a = {3,5,5,7,8};
+    auto x = upper_bound(a.begin(), a.end(),4);
+    cout << *--x;
     return 0;
 }
