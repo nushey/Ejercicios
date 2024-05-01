@@ -1,0 +1,9 @@
+{
+    "cmake.configureOnOpen": true,
+    "files.associations": {
+        "ostream": "cpp",
+        "array": "cpp",
+        "new": "cpp",
+        "iostream": "cpp"
+    }
+}
