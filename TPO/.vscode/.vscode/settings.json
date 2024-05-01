@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 {
     "files.associations": {
         "iostream": "cpp",
         "iosfwd": "cpp",
         "chrono": "cpp"
     }
+=======
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "random": "cpp"
+    }
+>>>>>>> origin/main
 }
