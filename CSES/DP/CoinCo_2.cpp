@@ -1,16 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int M = 100000007;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+const int M = 1000000007;
+
 int main() {
     int n, x;
     cin >> n >> x;
     vector<int> coins(n);
     for(auto &c:coins) cin >> c;
  
-    int* dp = new int[x+1];
-    for(int i = 0; i <= x; i++) dp[i] = 0;
+    vector<int> dp(x+1, 0);
     dp[0] = 1;
-    sort(coins.begin(), coins.end());
     for(int i = 0; i < n; i++){
         for(int j = 1; j <= x; j++){
             if(coins[i] <= j){

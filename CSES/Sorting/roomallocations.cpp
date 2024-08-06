@@ -1,49 +1,47 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool compare(pair<pair<int,int>,int> a, pair<pair<int,int>,int> b){
-    if(a.first.second != b.first.second){
-        return a.first.second < b.first.second;
-    }
-    else{
-        return a.first.first < b.first.first;
+void solve(vector<pair<pair<int,int>,int>> &v,vector<int> &res, int &towers, int n){
+    auto it = v.begin();
+    while(n > 0){
+        int max = -1;
+        vector<pair<pair<int,int>,int>> aux;
+        while(it != v.end()){
+            if(it->first.second > max){
+                max = it->first.first;
+                res[it->second] = towers;
+                ++it;
+                n--;
+            }
+            else{
+                aux.push_back(*it);
+                ++it;                  
+            }
+        }
+        v = aux;
+        if(n > 0) towers++;
+        it = v.begin(); // Reinicia el iterador al comienzo del mapa para la próxima torre
     }
 }
+
 
 int main() {
     
     int n;
     cin >> n;
-    vector<pair<pair<int,int>,int>> customer;
+    vector<pair<pair<int,int>,int>> v;
+    vector<int> res(n);
     for(int i = 0; i < n; i++){
         int a,b;
         cin >> a >> b;
-        customer.push_back({{a,b},i});
+        v.push_back({{b,a},i});
     }
-    sort(customer.begin(),customer.end(),compare);
-    set<pair<int,int>> res;
+    sort(v.begin(),v.end());
     int towers = 1;
-    while(customer.size() > 0){
-        int max = customer[0].first.second;
-        res.insert({customer[0].second, towers});
-        vector<pair<pair<int,int>,int>> survivors;
-        for(int i = 1; i < customer.size(); i++){
-            if(customer[i].first.first > max){
-                res.insert({customer[i].second, towers});
-                max = customer[i].first.second;
-                
-            }
-            else{
-                survivors.push_back(customer[i]);
-            }
-        }
-        customer = survivors;
-        towers++;
-    }
-    towers--;
+    solve(v,res,towers, n);
     cout << towers << '\n';
     for(auto x:res){
-        cout << x.second << " "; 
+        cout << x << " ";
     }
     return 0;
 }
